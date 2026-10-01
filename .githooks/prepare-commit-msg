@@ -1,0 +1,3 @@
+#!/bin/sh
+ROOT="$(git rev-parse --show-toplevel)"
+python "$ROOT/scripts/strip_cursor_coauthor.py" < "$1" > "$1.tmp" && mv "$1.tmp" "$1"
