@@ -36,7 +36,7 @@ export const Logo: React.FC<LogoProps> = ({
   return (
     <div className={`flex flex-col justify-center select-none min-w-0 bg-transparent ${className}`} id="brand-logo">
       <img
-        src={variant === 'light' ? '/logo-light.png' : '/logo-on-light.png'}
+        src={variant === 'light' ? '/logo-light.png?v=4' : '/logo-on-light.png?v=4'}
         alt="Star Enterprises"
         className={`${heights[size]} ${widths[size]} w-auto object-contain object-left bg-transparent`}
       />

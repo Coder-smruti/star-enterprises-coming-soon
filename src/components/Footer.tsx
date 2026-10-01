@@ -116,9 +116,6 @@ export const Footer: React.FC = () => {
             <span className="footer-legal-sep" aria-hidden />
             <Link to="/terms">Terms of Use</Link>
           </p>
-          <p className="footer-tagline">
-            Solar <i /> Technology <i /> Sustainability
-          </p>
         </div>
       </div>
     </footer>

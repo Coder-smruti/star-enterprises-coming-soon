@@ -10,11 +10,6 @@ export const Header: React.FC = () => {
   const location = useLocation();
   const path = location.pathname.replace(/\/+$/, '') || '/';
   const isHome = path === '/';
-  const isLightHero =
-    isHome ||
-    path === '/contact' ||
-    path === '/products' ||
-    path === '/about';
 
   useEffect(() => {
     setOpen(false);
@@ -34,11 +29,11 @@ export const Header: React.FC = () => {
     };
   }, [open]);
 
-  // Home stays transparent over the hero until scroll; other light pages use a solid light bar.
+  // Same light header on every page. Home stays clear over the hero until scroll.
   const shellClass = [
     'nav-shell',
-    isLightHero ? 'is-light' : '',
-    solid || open || !isLightHero || !isHome ? 'is-solid' : '',
+    'is-light',
+    solid || open || !isHome ? 'is-solid' : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -48,15 +43,13 @@ export const Header: React.FC = () => {
       <header className={shellClass}>
         <div className="site-container nav-inner">
           <Link to="/" className="shrink min-w-0" aria-label="Star Enterprises home">
-            <Logo size="sm" variant={isLightHero ? 'dark' : 'light'} />
+            <Logo size="sm" variant="dark" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
             {NAV_ITEMS.map((item) => {
               const active =
-                item.href === '/'
-                  ? path === '/'
-                  : path.startsWith(item.href);
+                item.href === '/' ? path === '/' : path.startsWith(item.href);
               return (
                 <Link
                   key={item.label}
@@ -78,7 +71,7 @@ export const Header: React.FC = () => {
             </div>
             <button
               type="button"
-              className={`lg:hidden p-2 ${isLightHero ? 'text-navy' : 'text-white'}`}
+              className="lg:hidden p-2 text-navy"
               aria-label="Menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
@@ -90,20 +83,14 @@ export const Header: React.FC = () => {
       </header>
 
       {open && (
-        <div
-          className={`fixed inset-0 z-40 backdrop-blur-xl pt-[calc(var(--header-h)+0.5rem)] lg:hidden ${
-            isLightHero ? 'bg-white/98' : 'bg-[#020B17]/96'
-          }`}
-        >
+        <div className="fixed inset-0 z-40 backdrop-blur-xl pt-[calc(var(--header-h)+0.5rem)] lg:hidden bg-white/98">
           <div className="site-container flex flex-col gap-2 py-10">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
                 onClick={() => setOpen(false)}
-                className={`display text-[2.4rem] leading-none py-2 ${
-                  isLightHero ? 'text-navy' : 'text-[#F3C969]'
-                }`}
+                className="display text-[2.4rem] leading-none py-2 text-navy"
               >
                 {item.label}
               </Link>
