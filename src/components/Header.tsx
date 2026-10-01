@@ -41,8 +41,6 @@ export const Header: React.FC = () => {
     .filter(Boolean)
     .join(' ');
 
-  const quoteClass = 'btn btn-accent hidden lg:inline-flex';
-
   return (
     <>
       <header className={shellClass}>
@@ -70,10 +68,12 @@ export const Header: React.FC = () => {
           </nav>
 
           <div className="flex items-center gap-3 shrink-0">
-            <Link to="/contact" className={quoteClass}>
-              Get a Quote
-              <ArrowUpRight />
-            </Link>
+            <div className="hidden lg:block">
+              <Link to="/contact" className="btn btn-accent">
+                Get a Quote
+                <ArrowUpRight />
+              </Link>
+            </div>
             <button
               type="button"
               className={`lg:hidden p-2 ${isLightHero ? 'text-navy' : 'text-white'}`}
