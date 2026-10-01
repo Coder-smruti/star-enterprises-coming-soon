@@ -2085,8 +2085,32 @@
 }
 
 @media (max-width: 899px) {
+  .journey-track {
+    gap: 1.15rem;
+  }
+
+  .journey-step {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    column-gap: 0.95rem;
+    align-items: start;
+  }
+
   .journey-node {
-    margin-bottom: 0.85rem;
+    grid-column: 1;
+    justify-content: center;
+    margin-bottom: 0;
+    min-height: 3rem;
+  }
+
+  .journey-card {
+    grid-column: 2;
+    min-height: 0;
+    padding: 1.05rem 1rem 1.1rem;
+  }
+
+  .journey-card-title {
+    min-height: 0;
   }
 
   .journey-connector {
@@ -2096,10 +2120,11 @@
   .journey-step:not(:last-child)::after {
     content: "";
     position: absolute;
-    left: 1.4rem;
-    top: 3.15rem;
-    bottom: -0.85rem;
+    left: 1.5rem;
+    top: 3rem;
+    bottom: -1.15rem;
     width: 2px;
+    transform: translateX(-50%);
     background: linear-gradient(
       180deg,
       rgba(229, 57, 53, 0.75) 0%,
