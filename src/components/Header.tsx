@@ -8,19 +8,20 @@ export const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const path = location.pathname.replace(/\/+$/, '') || '/';
+  const isHome = path === '/';
   const isLightHero =
-    location.pathname === '/' ||
-    location.pathname === '/contact' ||
-    location.pathname === '/products' ||
-    location.pathname === '/about';
+    isHome ||
+    path === '/contact' ||
+    path === '/products' ||
+    path === '/about';
 
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 24);
+    const onScroll = () => setSolid(window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -33,10 +34,11 @@ export const Header: React.FC = () => {
     };
   }, [open]);
 
+  // Home stays transparent over the hero until scroll; other light pages use a solid light bar.
   const shellClass = [
     'nav-shell',
     isLightHero ? 'is-light' : '',
-    solid || open || (!isHome && !isLightHero) ? 'is-solid' : '',
+    solid || open || !isLightHero || !isHome ? 'is-solid' : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -53,8 +55,8 @@ export const Header: React.FC = () => {
             {NAV_ITEMS.map((item) => {
               const active =
                 item.href === '/'
-                  ? location.pathname === '/'
-                  : location.pathname.startsWith(item.href);
+                  ? path === '/'
+                  : path.startsWith(item.href);
               return (
                 <Link
                   key={item.label}
