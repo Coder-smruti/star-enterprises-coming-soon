@@ -106,14 +106,6 @@ export const Header: React.FC = () => {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="btn btn-accent mt-6 w-full"
-            >
-              Get a Quote
-              <ArrowUpRight />
-            </Link>
           </div>
         </div>
       )}
