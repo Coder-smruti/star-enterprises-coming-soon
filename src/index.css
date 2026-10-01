@@ -590,7 +590,6 @@
 }
 
 .home-hero-visual img {
-  display: block;
   width: 100%;
   height: 100%;
   min-height: 320px;
@@ -617,12 +616,20 @@
   );
 }
 
+.home-hero-visual-desktop {
+  display: none;
+}
+
+.home-hero-visual-mobile {
+  display: block;
+}
+
 .hero-speech-bubble {
   position: absolute;
   top: 8%;
   left: 28%;
   z-index: 4;
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 0.4rem;
   max-width: 12.5rem;
@@ -691,6 +698,13 @@
     min-height: 0;
   }
 
+  .home-hero-strip {
+    position: relative;
+    z-index: 4;
+    width: min(48%, 46rem);
+    max-width: 46rem;
+  }
+
   .home-hero-visual {
     position: absolute;
     top: 0;
@@ -705,6 +719,14 @@
     inset: 0;
   }
 
+  .home-hero-visual-desktop {
+    display: block;
+  }
+
+  .home-hero-visual-mobile {
+    display: none;
+  }
+
   .home-hero-visual img {
     min-height: 100%;
     height: 100%;
@@ -713,6 +735,7 @@
   }
 
   .hero-speech-bubble {
+    display: inline-flex;
     top: 12%;
     left: 54%;
   }
@@ -736,40 +759,40 @@
   }
 
   .home-hero-visual {
-    order: 6;
-    min-height: 340px;
-    max-height: 380px;
-    margin-top: 0.5rem;
+    order: 2;
+    min-height: 0;
+    max-height: none;
+    margin: 0.35rem 0 0.15rem;
+  }
+
+  .home-hero-strip {
+    order: 3;
   }
 
   .home-hero-visual-frame {
     position: relative;
     inset: auto;
-    height: 100%;
-    min-height: inherit;
+    height: auto;
+    min-height: 0;
+  }
+
+  .home-hero-visual-frame::before,
+  .home-hero-visual-frame::after {
+    display: none;
   }
 
   .home-hero-visual img {
-    min-height: 340px;
-    max-height: 380px;
-    -webkit-mask-image: linear-gradient(
-      180deg,
-      #000 0%,
-      #000 78%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
-    object-position: 70% 40%;
-  }
-
-  .home-hero-visual-frame::before {
-    width: 18%;
+    min-height: 0;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .hero-speech-bubble {
-    top: 8%;
-    left: 8%;
-    max-width: 11rem;
+    display: none;
   }
 
   .hero-headline {

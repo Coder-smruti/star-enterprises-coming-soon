@@ -172,7 +172,7 @@ export function useHomeMotion(root: RefObject<HTMLElement | null>) {
       }
 
       gsap.fromTo(
-        el.querySelector('.home-hero-visual img'),
+        el.querySelectorAll('.home-hero-visual img'),
         { scale: 1.05, autoAlpha: 0.88 },
         {
           scale: 1,
@@ -204,7 +204,7 @@ export function useHomeMotion(root: RefObject<HTMLElement | null>) {
         });
       }
 
-      gsap.to(el.querySelector('.home-hero-visual img'), {
+      gsap.to(el.querySelectorAll('.home-hero-visual img'), {
         scale: 1.07,
         ease: 'none',
         scrollTrigger: {

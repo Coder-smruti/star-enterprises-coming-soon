@@ -245,29 +245,19 @@ export const HomePage: React.FC = () => {
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>
-
-              <div className="home-hero-strip" data-hero-el>
-                {HERO_SEGMENTS.map(({ href, label, copy, icon: Icon }, index) => (
-                  <React.Fragment key={label}>
-                    {index > 0 ? <span className="home-hero-strip-divider" aria-hidden /> : null}
-                    <a href={href} className="home-hero-strip-item">
-                      <span className="home-hero-strip-icon" aria-hidden>
-                        <Icon />
-                      </span>
-                      <span className="home-hero-strip-text">
-                        <strong>{label}</strong>
-                        <span>{copy}</span>
-                      </span>
-                    </a>
-                  </React.Fragment>
-                ))}
-              </div>
             </div>
 
             <div className="home-hero-visual" data-hero-el>
               <div className="home-hero-visual-frame">
                 <img
+                  className="home-hero-visual-desktop"
                   src="/media/hero-home-mascot.jpg?v=2"
+                  alt="Solar panel mascot relaxing on a sunny rooftop terrace"
+                  loading="eager"
+                />
+                <img
+                  className="home-hero-visual-mobile"
+                  src="/media/hero-home-mascot-mobile.png"
                   alt="Solar panel mascot relaxing on a sunny rooftop terrace"
                   loading="eager"
                 />
@@ -278,6 +268,23 @@ export const HomePage: React.FC = () => {
                 </span>
                 Sunlight is my kind of energy.
               </p>
+            </div>
+
+            <div className="home-hero-strip" data-hero-el>
+              {HERO_SEGMENTS.map(({ href, label, copy, icon: Icon }, index) => (
+                <React.Fragment key={label}>
+                  {index > 0 ? <span className="home-hero-strip-divider" aria-hidden /> : null}
+                  <a href={href} className="home-hero-strip-item">
+                    <span className="home-hero-strip-icon" aria-hidden>
+                      <Icon />
+                    </span>
+                    <span className="home-hero-strip-text">
+                      <strong>{label}</strong>
+                      <span>{copy}</span>
+                    </span>
+                  </a>
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>
