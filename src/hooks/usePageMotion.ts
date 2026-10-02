@@ -117,11 +117,13 @@ export function usePageMotion(root: RefObject<HTMLElement | null>) {
       autoGrids.forEach((grid) => {
         const items = grid.querySelectorAll(':scope > *');
         if (!items.length) return;
+        const isPanelGrid = grid.classList.contains('panel-card-grid');
         gsap.from(items, {
           autoAlpha: 0,
-          y: 32,
+          // Panel cards stay put — y-stagger made heights/alignment look uneven
+          y: isPanelGrid ? 0 : 32,
           duration: 0.7,
-          stagger: 0.08,
+          stagger: isPanelGrid ? 0.05 : 0.08,
           ease: EASE,
           scrollTrigger: {
             trigger: grid,

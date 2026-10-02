@@ -129,10 +129,6 @@ export const ProductsPage: React.FC = () => {
       </nav>
 
       <section className="prod-panels" id="solar-panels">
-        <div className="prod-panels-atmosphere" aria-hidden>
-          <img src="/products/panels-section-bg.jpg" alt="" />
-          <div className="prod-panels-veil" />
-        </div>
         <div className="site-container prod-panels-inner">
           <ProductSectionHeader
             title="Solar Panels"
@@ -179,10 +175,6 @@ export const ProductsPage: React.FC = () => {
       </section>
 
       <section className="prod-batteries" id="batteries" data-animate>
-        <div className="prod-batteries-atmosphere" aria-hidden>
-          <img src="/products/battery-section-bg.jpg" alt="" />
-          <div className="prod-batteries-veil" />
-        </div>
         <div className="site-container prod-batteries-inner">
           <ProductSectionHeader
             title="Batteries"
@@ -202,10 +194,6 @@ export const ProductsPage: React.FC = () => {
       </section>
 
       <section className="cab-section" id="cables-earthing">
-        <div className="cab-section-atmosphere" aria-hidden>
-          <img src="/products/panels-section-bg.jpg" alt="" />
-          <div className="cab-section-veil" />
-        </div>
         <div className="site-container cab-section-inner">
           <ProductSectionHeader
             title="Cables & Earthing"
@@ -333,11 +321,6 @@ export const ProductsPage: React.FC = () => {
       </section>
 
       <section className="sol-section" id="solar-solutions">
-        <div className="sol-section-atmosphere" aria-hidden>
-          <img src="/products/panels-section-bg.jpg" alt="" />
-          <div className="sol-section-veil" />
-        </div>
-
         <div className="sol-section-inner">
           <ProductSectionHeader
             eyebrow="Our Solutions"
