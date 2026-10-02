@@ -7,7 +7,12 @@ function MarqueeSet({ suffix, hidden }: { suffix: string; hidden?: boolean }) {
     <div className="brand-marquee-set" aria-hidden={hidden}>
       {PARTNER_BRANDS.map((brand) => (
         <div key={`${suffix}-${brand.name}`} className="brand-marquee-item">
-          <BrandLogo brand={brand.name} src={brand.logo} withName={false} className="brand-marquee-logo" />
+          <BrandLogo
+            brand={brand.name}
+            src={brand.logo}
+            withName={false}
+            className={`brand-marquee-logo${brand.logo.includes('/eastman.') ? ' brand-marquee-logo--eastman' : ''}`}
+          />
           <span className="brand-marquee-diamond" aria-hidden />
         </div>
       ))}

@@ -9,6 +9,7 @@ type TechGroup = {
 
 type SolarPanelCardProps = {
   brand: string;
+  slug: string;
   logo: string;
   image: string;
   copy: string;
@@ -17,6 +18,7 @@ type SolarPanelCardProps = {
 
 export const SolarPanelCard: React.FC<SolarPanelCardProps> = ({
   brand,
+  slug,
   logo,
   image,
   copy,
@@ -24,7 +26,12 @@ export const SolarPanelCard: React.FC<SolarPanelCardProps> = ({
 }) => (
   <article className="panel-card">
     <div className="panel-card-top">
-      <BrandLogo brand={brand} src={logo} className="panel-card-logo" withName={false} />
+      <BrandLogo
+        brand={brand}
+        src={logo}
+        className={`panel-card-logo panel-card-logo--${slug}`}
+        withName={false}
+      />
       <div className="panel-card-badges">
         {technologies.map((tech) => (
           <ProductBadge key={tech.label}>{tech.label}</ProductBadge>

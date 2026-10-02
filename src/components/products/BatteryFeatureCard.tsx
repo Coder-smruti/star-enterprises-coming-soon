@@ -1,7 +1,7 @@
 import React from 'react';
 import { BatteryCharging, Home, Leaf, Settings2, Zap, ShieldCheck } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
-import { ProductCTA, SpecPill } from './ProductBits';
+import { SpecPill } from './ProductBits';
 
 type BatteryFeatureCardProps = {
   brand: string;
@@ -12,7 +12,6 @@ type BatteryFeatureCardProps = {
   variants: readonly string[];
   image: string;
   benefits: readonly string[];
-  enquireTo: string;
 };
 
 const BENEFIT_ICONS = [BatteryCharging, Home, Settings2, Leaf];
@@ -26,7 +25,6 @@ export const BatteryFeatureCard: React.FC<BatteryFeatureCardProps> = ({
   variants,
   image,
   benefits,
-  enquireTo,
 }) => (
   <article className="batt-feature">
     <div className="batt-feature-content">
@@ -39,7 +37,6 @@ export const BatteryFeatureCard: React.FC<BatteryFeatureCardProps> = ({
           <SpecPill key={v}>{v}</SpecPill>
         ))}
       </div>
-      <ProductCTA to={enquireTo} label="Enquire" />
     </div>
 
     <div className="batt-feature-visual">

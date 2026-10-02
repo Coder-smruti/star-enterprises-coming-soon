@@ -14,6 +14,8 @@ import {
   Users,
   Wrench,
 } from 'lucide-react';
+import { PageHero } from '../components/PageHero';
+import { PageMotion } from '../components/PageMotion';
 const ABOUT_VALUES = [
   { label: 'Trusted Partnerships', icon: Users },
   { label: 'Quality Solutions', icon: Settings2 },
@@ -67,48 +69,35 @@ const WHY_CARDS = [
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="about-page">
-      <section className="about-hero">
-        <div className="about-hero-shell">
-          <div className="about-hero-media" aria-hidden>
-            <img src="/about/about-team-hero.jpg" alt="" />
-            <div className="about-hero-veil" />
-          </div>
+    <PageMotion className="about-page">
+      <PageHero
+        eyebrow="About Us"
+        title={
+          <>
+            Built around
+            <br />
+            <span className="hero-bright-word">real</span> solar work.
+          </>
+        }
+        lead="Star Enterprises designs and supplies intelligent solar systems for homes, businesses and industry — specified for real loads, real roofs and long-term performance."
+        image="/about/about-team-hero.jpg"
+        imageAlt="Star Enterprises solar team"
+      >
+        <ul className="page-hero-strip is-four">
+          {ABOUT_VALUES.map(({ label, icon: Icon }) => (
+            <li key={label} className="page-hero-strip-item">
+              <span className="page-hero-strip-icon" aria-hidden>
+                <Icon />
+              </span>
+              <span className="page-hero-strip-text">
+                <strong>{label}</strong>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </PageHero>
 
-          <div className="site-container about-hero-layout">
-            <div className="about-hero-copy">
-              <p className="about-hero-eyebrow">
-                <span className="about-hero-rule" />
-                About Us
-              </p>
-
-              <h1 className="display about-hero-title">
-                Powering a
-                <br />
-                <span className="is-accent">Brighter Tomorrow.</span>
-              </h1>
-
-              <p className="about-hero-lead">
-                We are a solar solutions company committed to delivering reliable, efficient and
-                future-ready energy systems for homes, businesses and industries.
-              </p>
-
-              <ul className="about-hero-features">
-                {ABOUT_VALUES.map(({ label, icon: Icon }) => (
-                  <li key={label}>
-                    <span className="about-hero-feature-icon" aria-hidden>
-                      <Icon />
-                    </span>
-                    <strong>{label}</strong>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="about-story" id="our-story">
+      <section className="about-story" id="our-story" data-animate>
         <div className="about-story-inner">
           <div className="about-story-main">
             <p className="about-story-kicker">
@@ -158,7 +147,7 @@ export const AboutPage: React.FC = () => {
 
       <section className="about-why" id="why-star">
         <div className="site-container">
-          <div className="about-why-intro">
+          <div className="about-why-intro" data-animate>
             <div className="about-why-media">
               <img src="/about/office.jpg" alt="Star Enterprises office" loading="lazy" />
               <div className="about-why-badge">
@@ -201,7 +190,7 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="about-cta">
+      <section className="about-cta" data-animate>
         <div className="site-container">
           <div className="about-cta-panel">
             <div className="about-cta-media" aria-hidden>
@@ -224,6 +213,6 @@ export const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageMotion>
   );
 };

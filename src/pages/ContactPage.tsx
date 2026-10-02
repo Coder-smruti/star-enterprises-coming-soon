@@ -14,6 +14,8 @@ import {
   Zap,
 } from 'lucide-react';
 import { CONTACT_INFO, CONTACT_PAGE_PHONES, ENQUIRY_SEGMENTS } from '../data/content';
+import { PageHero } from '../components/PageHero';
+import { PageMotion } from '../components/PageMotion';
 
 type FormState = {
   fullName: string;
@@ -123,88 +125,70 @@ export const ContactPage: React.FC = () => {
   }, [prefilledType]);
 
   return (
-    <div className="contact-page">
-      <section className="contact-hero">
-        <div className="contact-hero-shell">
-          <div className="contact-hero-media" aria-hidden>
-            <img src="/media/contact-hero.jpg" alt="" />
-            <div className="contact-hero-veil" />
-          </div>
+    <PageMotion className="contact-page">
+      <PageHero
+        className="is-contact"
+        eyebrow="Contact Us"
+        title={
+          <>
+            Ready when
+            <br />
+            <span className="hero-bright-word">you are.</span>
+          </>
+        }
+        lead="Tell us about your home, business or industrial site — we will help you identify the right solar solution, brands and next step."
+        image="/media/contact-hero.jpg"
+        imageAlt="Solar field consultation at golden hour"
+      >
+        <ul className="contact-hero-points">
+          <li>
+            <span className="contact-hero-point-icon" aria-hidden>
+              <MessageCircle />
+            </span>
+            Expert guidance
+          </li>
+          <li>
+            <span className="contact-hero-point-icon" aria-hidden>
+              <Settings />
+            </span>
+            Customized solutions
+          </li>
+          <li>
+            <span className="contact-hero-point-icon" aria-hidden>
+              <Zap />
+            </span>
+            Quick response
+          </li>
+        </ul>
 
-          <div className="site-container contact-hero-layout">
-            <div className="contact-hero-copy">
-              <p className="contact-hero-eyebrow">
-                <span className="contact-hero-rule" />
-                Contact Us
-              </p>
-              <h1 className="display contact-hero-title">
-                READY WHEN
-                <br />
-                <span className="is-accent">YOU ARE.</span>
-              </h1>
-              <p className="contact-hero-lead">
-                Tell us about your home, business or industrial site — we will help you identify the
-                right solar solution, brands and next step.
-              </p>
-
-              <ul className="contact-hero-features">
-                <li>
-                  <span className="contact-hero-feature-icon">
-                    <MessageCircle />
-                  </span>
-                  <span>
-                    <strong>Expert Guidance</strong>
-                  </span>
-                </li>
-                <li>
-                  <span className="contact-hero-feature-icon">
-                    <Settings />
-                  </span>
-                  <span>
-                    <strong>Customized Solutions</strong>
-                  </span>
-                </li>
-                <li>
-                  <span className="contact-hero-feature-icon">
-                    <Zap />
-                  </span>
-                  <span>
-                    <strong>Quick Response</strong>
-                </span>
-                </li>
-              </ul>
-
-              <div className="contact-hero-actions">
-                <a href={`tel:${CONTACT_PAGE_PHONES[0].tel}`} className="btn btn-accent">
-                  <PhoneCall />
-                  Call {CONTACT_PAGE_PHONES[0].display}
-                  <ArrowUpRight />
-                </a>
-                <a
-                  href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-outline-navy"
-                >
-                  <MessageCircle />
-                  WhatsApp Us
-                  <ArrowUpRight />
-                </a>
-            </div>
-
-              <div className="contact-hero-phones">
-                {CONTACT_PAGE_PHONES.map((phone) => (
-                  <a key={phone.tel} href={`tel:${phone.tel}`}>
-                    {phone.display}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div className="page-hero-actions contact-hero-actions">
+          <a href={`tel:${CONTACT_PAGE_PHONES[0].tel}`} className="btn btn-accent btn-hero-primary">
+            <PhoneCall />
+            Call {CONTACT_PAGE_PHONES[0].display}
+            <ArrowUpRight />
+          </a>
+          <a
+            href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-hero-secondary"
+          >
+            <MessageCircle />
+            WhatsApp Us
+            <ArrowUpRight />
+          </a>
         </div>
-      </section>
 
-      <section className="contact-body">
+        <div className="page-hero-phones">
+          {CONTACT_PAGE_PHONES.map((phone) => (
+            <a key={phone.tel} href={`tel:${phone.tel}`}>
+              {phone.display}
+            </a>
+          ))}
+        </div>
+      </PageHero>
+
+      <section className="contact-body" data-animate>
         <div className="site-container contact-layout">
           <aside className="contact-aside">
             <div className="contact-visual-card">
@@ -407,6 +391,6 @@ export const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageMotion>
   );
 };

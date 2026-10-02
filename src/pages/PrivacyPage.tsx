@@ -1,23 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '../components/PageHero';
+import { PageMotion } from '../components/PageMotion';
 
 export const PrivacyPage: React.FC = () => {
   return (
-    <div>
-      <section className="page-hero-ink">
-        <div className="site-container relative z-[1]">
-          <p className="eyebrow text-champagne">Legal</p>
-          <h1 className="display display-lg mt-5 text-white">Privacy Policy</h1>
-          <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-white/70">
-            How Star Enterprises collects, uses and protects personal information from website
-            enquiries and related communication.
-          </p>
-        </div>
-      </section>
+    <PageMotion>
+      <PageHero
+        compact
+        eyebrow="Legal"
+        title={
+          <>
+            Privacy <span className="hero-bright-word">Policy</span>
+          </>
+        }
+        lead="How Star Enterprises collects, uses and protects personal information from website enquiries and related communication."
+      />
 
       <section className="section-y bg-cream">
         <div className="site-container">
-          <div className="max-w-2xl space-y-10 text-[1.02rem] leading-relaxed text-navy/70">
+          <div className="max-w-2xl space-y-10 text-[1.02rem] leading-relaxed text-black" data-animate-stagger>
             <div>
               <h2 className="display text-[1.8rem] text-navy">Information we collect</h2>
               <p className="mt-3">
@@ -39,7 +41,7 @@ export const PrivacyPage: React.FC = () => {
                 Access to enquiry details is limited to people who need it to respond. If you want
                 your details updated or removed, contact us through the{' '}
                 <Link to="/contact" className="text-gold hover:underline">
-                  Contact Us
+                  Contact
                 </Link>{' '}
                 page.
               </p>
@@ -47,6 +49,6 @@ export const PrivacyPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageMotion>
   );
 };

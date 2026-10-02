@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
       <div className="site-container footer-main">
         <div className="footer-brand">
           <Link to="/" className="footer-logo" aria-label="Star Enterprises home">
-            <Logo size="md" variant="light" />
+            <Logo size="lg" variant="light" />
           </Link>
           <p className="footer-brand-copy">
             Intelligent solar solutions for homes, businesses and industry — built around real

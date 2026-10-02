@@ -16,13 +16,13 @@ export const Logo: React.FC<LogoProps> = ({
   const heights = {
     sm: 'h-8 sm:h-9',
     md: 'h-10 sm:h-11',
-    lg: 'h-12 sm:h-14',
+    lg: 'h-12 sm:h-14 md:h-[3.6rem] lg:h-16',
   };
 
   const widths = {
     sm: 'max-w-[148px] sm:max-w-[180px] lg:max-w-[200px]',
     md: 'max-w-[180px] sm:max-w-[220px]',
-    lg: 'max-w-[200px] sm:max-w-[240px]',
+    lg: 'max-w-[220px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[360px]',
   };
 
   const tagSizes = {

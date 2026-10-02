@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight, MessageCircle, PhoneCall } from 'lucide-react';
 import { CONTACT_INFO } from '../data/content';
+import { PageHero } from '../components/PageHero';
+import { PageMotion } from '../components/PageMotion';
 
 export const ThankYouPage: React.FC = () => {
   const enquiryName = useMemo(() => {
@@ -16,48 +18,48 @@ export const ThankYouPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <section className="page-hero-ink min-h-[70svh] flex items-end">
-        <div className="site-container relative z-[1] pb-8">
-          <p className="eyebrow text-champagne">Received</p>
-          <h1 className="display display-lg mt-5 max-w-[12ch] text-white">
-            THANK <span className="text-champagne">YOU{enquiryName ? ',' : '.'}</span>
+    <PageMotion>
+      <PageHero
+        eyebrow="Received"
+        title={
+          <>
+            Thank <span className="hero-bright-word">you{enquiryName ? ',' : '.'}</span>
             {enquiryName ? (
               <>
                 <br />
-                <span className="text-champagne">{enquiryName.toUpperCase()}.</span>
+                {enquiryName}.
               </>
             ) : null}
-          </h1>
-          <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-white/70">
-            Your enquiry details are ready in WhatsApp. If the chat window opened, send the message to
-            reach our team. We typically respond within one business day with a clear next step.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a
-              href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-gold"
-            >
-              Open WhatsApp again
-              <MessageCircle className="w-4 h-4" />
-            </a>
-            <a href={`tel:${CONTACT_INFO.phoneTel}`} className="btn btn-outline">
-              Call {CONTACT_INFO.phoneDisplay}
-              <PhoneCall className="w-4 h-4" />
-            </a>
-            <Link to="/" className="btn btn-outline">
-              Back to Home
-              <ArrowRight />
-            </Link>
-            <Link to="/products" className="btn btn-outline">
-              View Products
-              <ArrowUpRight />
-            </Link>
-          </div>
+          </>
+        }
+        lead="Your enquiry details are ready in WhatsApp. If the chat window opened, send the message to reach our team. We typically respond within one business day with a clear next step."
+        image="/cta/solar-consultation-home.jpg"
+        imageAlt=""
+      >
+        <div className="page-hero-actions">
+          <a
+            href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-accent btn-hero-primary"
+          >
+            Open WhatsApp again
+            <MessageCircle className="w-4 h-4" />
+          </a>
+          <a href={`tel:${CONTACT_INFO.phoneTel}`} className="btn btn-hero-secondary">
+            Call {CONTACT_INFO.phoneDisplay}
+            <PhoneCall className="w-4 h-4" />
+          </a>
+          <Link to="/" className="btn btn-hero-secondary">
+            Back to Home
+            <ArrowRight />
+          </Link>
+          <Link to="/products" className="btn btn-hero-secondary">
+            View Products
+            <ArrowUpRight />
+          </Link>
         </div>
-      </section>
-    </div>
+      </PageHero>
+    </PageMotion>
   );
 };

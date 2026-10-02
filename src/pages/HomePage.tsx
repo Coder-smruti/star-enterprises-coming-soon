@@ -3,42 +3,18 @@ import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   ArrowUpRight,
-  Building2,
   CheckCircle2,
   ClipboardCheck,
   Factory,
   FileCheck2,
-  Home,
   MapPinned,
-  PhoneCall,
   Radio,
   ShieldCheck,
   Zap,
 } from 'lucide-react';
 import { BrandMarquee } from '../components/BrandMarquee';
-import { CONTACT_INFO, FEATURED_PRODUCTS, PRODUCT_BRANDS } from '../data/content';
+import { FEATURED_PRODUCTS, HOME_PRODUCT_CATALOGUE, PRODUCT_BRANDS } from '../data/content';
 import { useHomeMotion } from './useHomeMotion';
-
-const HERO_SEGMENTS = [
-  {
-    href: '#residential',
-    label: 'Residential',
-    copy: 'Cleaner homes',
-    icon: Home,
-  },
-  {
-    href: '#commercial',
-    label: 'Commercial',
-    copy: 'Smarter businesses',
-    icon: Building2,
-  },
-  {
-    href: '#industrial',
-    label: 'Industrial',
-    copy: 'Reliable high-load power',
-    icon: Factory,
-  },
-] as const;
 
 const SOLUTIONS = [
   {
@@ -165,8 +141,10 @@ export const HomePage: React.FC = () => {
 
   const displayedProducts =
     selectedBrand === 'All'
-      ? FEATURED_PRODUCTS.slice(0, 3)
-      : FEATURED_PRODUCTS.filter((p) => p.brand.toLowerCase().includes(selectedBrand.toLowerCase())).slice(0, 3);
+      ? FEATURED_PRODUCTS.slice(0, 6)
+      : HOME_PRODUCT_CATALOGUE.filter((p) =>
+          p.brand.toLowerCase() === selectedBrand.toLowerCase(),
+        );
 
   return (
     <div ref={root} className="home-stage">
@@ -270,22 +248,6 @@ export const HomePage: React.FC = () => {
               </p>
             </div>
 
-            <div className="home-hero-strip" data-hero-el>
-              {HERO_SEGMENTS.map(({ href, label, copy, icon: Icon }, index) => (
-                <React.Fragment key={label}>
-                  {index > 0 ? <span className="home-hero-strip-divider" aria-hidden /> : null}
-                  <a href={href} className="home-hero-strip-item">
-                    <span className="home-hero-strip-icon" aria-hidden>
-                      <Icon />
-                    </span>
-                    <span className="home-hero-strip-text">
-                      <strong>{label}</strong>
-                      <span>{copy}</span>
-                    </span>
-                  </a>
-                </React.Fragment>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -319,7 +281,7 @@ export const HomePage: React.FC = () => {
               </p>
 
               <p
-                className="statement-body text-[1.02rem] leading-relaxed text-navy/72"
+                className="statement-body text-[1.02rem] leading-relaxed text-black"
                 data-statement-copy
               >
                 Intelligent solar for homes, businesses and industry — designed around consumption,
@@ -339,8 +301,8 @@ export const HomePage: React.FC = () => {
                   <defs>
                     <radialGradient id="statement-sun" cx="50%" cy="50%" r="50%">
                       <stop offset="0%" stopColor="#fff6d8" />
-                      <stop offset="55%" stopColor="#fce6b1" />
-                      <stop offset="100%" stopColor="#b48a38" />
+                      <stop offset="55%" stopColor="#ff8fab" />
+                      <stop offset="100%" stopColor="#e00050" />
                     </radialGradient>
                   </defs>
                   <polygon
@@ -355,7 +317,7 @@ export const HomePage: React.FC = () => {
                       data-statement-photon
                       d={d}
                       fill="none"
-                      stroke="#fce6b1"
+                      stroke="#ff8fab"
                       strokeWidth="1.8"
                       strokeLinecap="round"
                       opacity="0"
@@ -369,7 +331,7 @@ export const HomePage: React.FC = () => {
                         y1={ray.y1}
                         x2={ray.x2}
                         y2={ray.y2}
-                        stroke="#fce6b1"
+                        stroke="#ff8fab"
                         strokeWidth="1.6"
                         strokeLinecap="round"
                       />
@@ -388,7 +350,7 @@ export const HomePage: React.FC = () => {
                     width="52"
                     height="28"
                     rx="1"
-                    fill="#b48a38"
+                    fill="#e00050"
                     transform="rotate(-18 118 368)"
                   />
                   <rect
@@ -398,7 +360,7 @@ export const HomePage: React.FC = () => {
                     width="52"
                     height="28"
                     rx="1"
-                    fill="#b48a38"
+                    fill="#e00050"
                     transform="rotate(-18 168 352)"
                   />
                   <rect
@@ -408,12 +370,12 @@ export const HomePage: React.FC = () => {
                     width="52"
                     height="28"
                     rx="1"
-                    fill="#b48a38"
+                    fill="#e00050"
                     transform="rotate(-18 218 336)"
                   />
                   <rect x="186" y="454" width="22" height="46" fill="#0b1f48" />
-                  <rect x="118" y="448" width="18" height="22" fill="#fce6b1" opacity="0.35" />
-                  <rect x="268" y="448" width="18" height="22" fill="#fce6b1" opacity="0.35" />
+                  <rect x="118" y="448" width="18" height="22" fill="#ff8fab" opacity="0.35" />
+                  <rect x="268" y="448" width="18" height="22" fill="#ff8fab" opacity="0.35" />
                 </svg>
                 <p className="statement-caption" data-statement-caption>
                   Light becomes power.
@@ -430,7 +392,7 @@ export const HomePage: React.FC = () => {
           <div className="audience-head" data-flow-intro>
             <p className="eyebrow statement-eyebrow">Engineered Solutions</p>
             <h2 className="display display-lg text-navy">SOLAR, BUILT AROUND YOU.</h2>
-            <p className="max-w-2xl text-[1.05rem] leading-relaxed text-navy/75">
+            <p className="max-w-2xl text-[1.05rem] leading-relaxed text-black">
               Three scales. One standard of engineering — from a luxury private villa rooftop to
               multi-megawatt industrial ground-mounts.
             </p>
@@ -479,7 +441,7 @@ export const HomePage: React.FC = () => {
             <p className="display mt-5 text-[clamp(1.5rem,3vw,2.4rem)] leading-[1.08] statement-eyebrow">
               We build permanent energy independence.
             </p>
-            <p className="mt-5 text-sm leading-relaxed text-navy/70">
+            <p className="mt-5 text-sm leading-relaxed text-black">
               Solar is a 25-year structural and electrical commitment. We engineer every array to
               survive coastal winds, high-temperature thermal clipping, and severe monsoon conditions.
             </p>
@@ -494,7 +456,7 @@ export const HomePage: React.FC = () => {
                   </span>
                   <span className="why-card-num">{num}</span>
                 </div>
-                <h3 className="why-card-title">{name}</h3>
+                <h3 className="display why-card-title">{name}</h3>
                 <p className="why-card-copy">{copy}</p>
               </article>
             ))}
@@ -556,7 +518,7 @@ export const HomePage: React.FC = () => {
                 </div>
                 <article className="journey-card">
                   <span className="journey-card-num">Step {n}</span>
-                  <h3 className="journey-card-title">{name}</h3>
+                  <h3 className="display journey-card-title">{name}</h3>
                   <p className="journey-card-copy">{copy}</p>
                 </article>
               </li>
@@ -599,7 +561,10 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="products-feature-grid" data-flow-body>
-              {displayedProducts.map((product) => (
+              {displayedProducts.length === 0 ? (
+                <p className="products-stage-lead">No products listed for this brand yet.</p>
+              ) : (
+                displayedProducts.map((product) => (
                 <Link
                   key={product.id}
                   to={`/products?brand=${encodeURIComponent(product.brand)}`}
@@ -608,14 +573,14 @@ export const HomePage: React.FC = () => {
                   data-flow-item
                 >
                   <div className="product-card-media">
-                    <img src={`${product.image}?v=4`} alt={product.name} />
+                    <img src={`${product.image}?v=5`} alt={product.name} />
                   </div>
                   <div className="product-card-body">
                     <div className="product-card-meta">
                       <p className="product-card-brand">{product.brand}</p>
                       <span className="product-card-spec">{product.techSpec}</span>
                     </div>
-                    <h3 className="product-card-title">{product.name}</h3>
+                    <h3 className="display product-card-title">{product.name}</h3>
                     <p className="product-card-copy">{product.description}</p>
                     <span className="product-card-link">
                       Enquire Details
@@ -623,7 +588,8 @@ export const HomePage: React.FC = () => {
                     </span>
                   </div>
                 </Link>
-              ))}
+              ))
+              )}
             </div>
           </div>
         </div>
@@ -633,7 +599,7 @@ export const HomePage: React.FC = () => {
       <section className="scheme-band" data-flow-section="scheme">
         <div className="site-container scheme-band-inner">
           <div className="scheme-band-copy" data-scheme-copy>
-            <h3 className="scheme-headline">
+            <h3 className="display scheme-headline">
               <span className="scheme-headline-main">PM Surya Ghar</span>
               <span className="scheme-headline-accent">Muft Bijli Yojana</span>
             </h3>
@@ -688,38 +654,32 @@ export const HomePage: React.FC = () => {
         <div className="site-container">
           <div className="final-cta-panel" data-flow-intro>
             <div className="relative z-[1]">
-              <p className="eyebrow text-champagne">Begin Your Transition</p>
-              <h2 className="display display-lg mt-4 max-w-[14ch] text-champagne">
+              <p className="eyebrow !text-white">Begin Your Transition</p>
+              <h2 className="display display-lg mt-4 max-w-[14ch] statement-eyebrow">
                 READY WHEN YOU ARE.
               </h2>
               <p className="mt-4 max-w-xl text-[1.05rem] leading-relaxed text-white/80">
                 Tell us about your property — residential, commercial, or industrial — and our engineering team
                 will prepare a complimentary site shadow audit and 25-year financial yield projection.
               </p>
-              <div className="mt-6 flex flex-wrap items-center gap-6 text-sm text-champagne/90">
+              <div className="mt-6 flex flex-wrap items-center gap-6 text-sm text-white">
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gold" /> Free On-Site Feasibility
+                  <CheckCircle2 className="w-4 h-4 text-[#e00050]" /> Free On-Site Feasibility
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gold" /> Tier-1 OEM Warranties
+                  <CheckCircle2 className="w-4 h-4 text-[#e00050]" /> Tier-1 OEM Warranties
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gold" /> Turnkey Net-Metering
+                  <CheckCircle2 className="w-4 h-4 text-[#e00050]" /> Turnkey Net-Metering
                 </span>
               </div>
             </div>
-            <div className="relative z-[1] flex flex-col sm:flex-row md:flex-col gap-4">
-              <Link to="/contact" className="btn btn-gold w-full sm:w-auto">
-                Request a Free Solar Audit
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-              <a
-                href={`tel:${CONTACT_INFO.phoneTel}`}
-                className="btn-outline-champagne w-full sm:w-auto"
-              >
-                <PhoneCall className="w-4 h-4" />
-                {CONTACT_INFO.phoneDisplay}
-              </a>
+            <div className="final-cta-visual">
+              <img
+                src="/cta/solar-consultation-home.jpg?v=2"
+                alt="Modern home with rooftop solar panels"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

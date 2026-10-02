@@ -375,7 +375,7 @@ export function useHomeMotion(root: RefObject<HTMLElement | null>) {
         );
 
         gsap.to('[data-statement-panel]', {
-          fill: '#fce6b1',
+          fill: '#ff8fab',
           duration: 1.6,
           stagger: 0.2,
           ease: 'sine.inOut',

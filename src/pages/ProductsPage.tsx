@@ -43,6 +43,8 @@ import { SolarPanelCard } from '../components/products/SolarPanelCard';
 import { InverterCard } from '../components/products/InverterCard';
 import { BatteryFeatureCard, InverterBenefits } from '../components/products/BatteryFeatureCard';
 import { ProductSectionHeader } from '../components/products/ProductBits';
+import { PageHero } from '../components/PageHero';
+import { PageMotion } from '../components/PageMotion';
 
 const PROTECTION_ICONS = [ShieldCheck, Network, Layers, Building2];
 
@@ -93,44 +95,30 @@ export const ProductsPage: React.FC = () => {
   );
 
   return (
-    <div className="products-page">
-      <section className="products-hero">
-        <div className="products-hero-shell">
-          <div className="products-hero-media" aria-hidden>
-            <img src="/media/products-hero.jpg" alt="" />
-            <div className="products-hero-veil" />
-          </div>
-
-          <div className="site-container products-hero-layout">
-            <div className="products-hero-copy">
-              <p className="products-hero-eyebrow">
-                <span className="products-hero-rule" />
-                Our Products
-              </p>
-              <h1 className="display products-hero-title">
-                Trusted Solar Brands
-                <br />
-                for a <span className="is-accent">Brighter Tomorrow.</span>
-              </h1>
-              <p className="products-hero-lead">
-                High-performance solar products from trusted brands for homes, businesses and
-                industrial projects. We help you choose the right brand, model and warranty for
-                your site.
-              </p>
-
-              <div className="products-hero-brands">
-                {PRODUCT_BRANDS.map((brand) => (
-                  <span key={brand} className="products-hero-pill">
-                    {brand}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+    <PageMotion className="products-page">
+      <PageHero
+        eyebrow="Our Products"
+        title={
+          <>
+            Trusted Solar Brands
+            <br />
+            for a <span className="hero-bright-word">Brighter</span> Tomorrow.
+          </>
+        }
+        lead="High-performance solar products from trusted brands for homes, businesses and industrial projects. We help you choose the right brand, model and warranty for your site."
+        image="/media/products-hero.jpg"
+        imageAlt="Solar products and panels"
+      >
+        <div className="page-hero-brands">
+          {PRODUCT_BRANDS.map((brand) => (
+            <span key={brand} className="page-hero-pill">
+              {brand}
+            </span>
+          ))}
         </div>
-      </section>
+      </PageHero>
 
-      <nav className="pcat-nav" aria-label="Product categories">
+      <nav className="pcat-nav" aria-label="Product categories" data-animate>
         <div className="site-container pcat-nav-track">
           {PRODUCT_SECTION_NAV.map((item) => (
             <a key={item.id} href={`#${item.id}`} className="pcat-chip">
@@ -155,6 +143,7 @@ export const ProductsPage: React.FC = () => {
               <SolarPanelCard
                 key={card.brand}
                 brand={card.brand}
+                slug={card.slug}
                 logo={card.logo}
                 image={card.image}
                 copy={card.copy}
@@ -177,6 +166,7 @@ export const ProductsPage: React.FC = () => {
               <InverterCard
                 key={card.brand}
                 brand={card.brand}
+                slug={card.slug}
                 logo={card.logo}
                 image={card.image}
                 type={card.type}
@@ -188,7 +178,7 @@ export const ProductsPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="prod-batteries" id="batteries">
+      <section className="prod-batteries" id="batteries" data-animate>
         <div className="prod-batteries-atmosphere" aria-hidden>
           <img src="/products/battery-section-bg.jpg" alt="" />
           <div className="prod-batteries-veil" />
@@ -207,7 +197,6 @@ export const ProductsPage: React.FC = () => {
             variants={BATTERY_FEATURE.variants}
             image={BATTERY_FEATURE.image}
             benefits={BATTERY_FEATURE.benefits}
-            enquireTo={enquireHref('Durasol Battery')}
           />
         </div>
       </section>
@@ -272,7 +261,7 @@ export const ProductsPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="prot-section" id="protection">
+      <section className="prot-section" id="protection" data-animate>
         <div className="site-container">
           <ProductSectionHeader
             title="Solar Protection & Distribution"
@@ -425,13 +414,10 @@ export const ProductsPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="prod-cta">
+      <section className="prod-guide-cta" data-animate>
         <div className="prod-cta-inner">
           <div className="prod-cta-panel">
             <div className="prod-cta-glow" aria-hidden />
-            <div className="prod-cta-visual" aria-hidden>
-              <img src="/cta/solar-consultation-home.jpg" alt="" />
-            </div>
 
             <div className="prod-cta-main">
               <p className="prod-cta-eyebrow">
@@ -460,30 +446,34 @@ export const ProductsPage: React.FC = () => {
                   </li>
                 ))}
               </ul>
+
+              <div className="prod-cta-foot">
+                <div className="prod-cta-actions">
+                  <Link to="/contact" className="prod-cta-btn is-primary">
+                    Get a Quote
+                    <ArrowUpRight />
+                  </Link>
+                  <a href={waHref} target="_blank" rel="noreferrer" className="prod-cta-btn is-secondary">
+                    <MessageCircle />
+                    WhatsApp
+                  </a>
+                </div>
+
+                <ul className="prod-cta-checks">
+                  {CTA_CHECKS.map((item) => (
+                    <li key={item}>
+                      <span aria-hidden>
+                        <Check />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <div className="prod-cta-side">
-              <div className="prod-cta-actions">
-                <Link to="/contact" className="prod-cta-btn is-primary">
-                  Get a Quote
-                  <ArrowUpRight />
-                </Link>
-                <a href={waHref} target="_blank" rel="noreferrer" className="prod-cta-btn is-secondary">
-                  <MessageCircle />
-                  WhatsApp
-                </a>
-              </div>
-
-              <ul className="prod-cta-checks">
-                {CTA_CHECKS.map((item) => (
-                  <li key={item}>
-                    <span aria-hidden>
-                      <Check />
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="prod-cta-visual" aria-hidden>
+              <img src="/cta/solar-consultation-home.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -533,6 +523,6 @@ export const ProductsPage: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+    </PageMotion>
   );
 };

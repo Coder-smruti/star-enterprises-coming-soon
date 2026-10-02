@@ -1,22 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '../components/PageHero';
+import { PageMotion } from '../components/PageMotion';
 
 export const TermsPage: React.FC = () => {
   return (
-    <div>
-      <section className="page-hero-ink">
-        <div className="site-container relative z-[1]">
-          <p className="eyebrow text-champagne">Legal</p>
-          <h1 className="display display-lg mt-5 text-white">Terms of Use</h1>
-          <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-white/70">
-            Terms for using this website and sending a Star Enterprises enquiry.
-          </p>
-        </div>
-      </section>
+    <PageMotion>
+      <PageHero
+        compact
+        eyebrow="Legal"
+        title={
+          <>
+            Terms of <span className="hero-bright-word">Use</span>
+          </>
+        }
+        lead="Terms for using this website and sending a Star Enterprises enquiry."
+      />
 
       <section className="section-y bg-cream">
         <div className="site-container">
-          <div className="max-w-2xl space-y-10 text-[1.02rem] leading-relaxed text-navy/70">
+          <div className="max-w-2xl space-y-10 text-[1.02rem] leading-relaxed text-black" data-animate-stagger>
             <div>
               <h2 className="display text-[1.8rem] text-navy">Using this website</h2>
               <p className="mt-3">
@@ -48,6 +51,6 @@ export const TermsPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageMotion>
   );
 };

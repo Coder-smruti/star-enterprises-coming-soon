@@ -46,9 +46,9 @@ export const HeroStage: React.FC = () => {
           />
           <defs>
             <linearGradient id="scriptUnderlineGrad" x1="4" y1="12" x2="236" y2="14" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#F3C969" />
-              <stop offset="60%" stopColor="#D9A63A" />
-              <stop offset="100%" stopColor="#FCE6B1" />
+              <stop stopColor="#ff4d7a" />
+              <stop offset="60%" stopColor="#e00050" />
+              <stop offset="100%" stopColor="#ff8fab" />
             </linearGradient>
           </defs>
         </svg>

@@ -1,4 +1,4 @@
-﻿import {
+import {
   NavItem,
   HeroStat,
   OrbitPillar,
@@ -26,8 +26,8 @@ export const CONTACT_INFO = {
   email: 'starenterprisesbbsr@gmail.com',
   hours: 'Monday – Saturday, 9:00 AM – 7:00 PM',
   responseTime: 'Typically within one business day',
-  addressLines: ['Plot No. 12, Industrial Area', 'Bhubaneswar, Odisha – 751024'],
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Industrial+Area+Bhubaneswar+Odisha+751024',
+  addressLines: ['B44/2, Chandaka Industrial Estate, Patia', 'Bhubaneswar – 751024'],
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=B44%2F2+Chandaka+Industrial+Estate+Patia+Bhubaneswar+751024',
   cityLabel: 'Bhubaneswar, Odisha',
   region: 'Residential, commercial & industrial solar across Odisha',
   social: {
@@ -42,7 +42,7 @@ export const CONTACT_INFO = {
 export const CONTACT_PAGE_PHONES = [
   { display: '+91 93480 86867', tel: '+919348086867' },
   { display: '+91 90403 10328', tel: '+919040310328' },
-  { display: '+91 70085 17362', tel: '+917008517362' },
+  { display: '+91 70085 27362', tel: '+917008527362' },
 ] as const;
 
 export const ENQUIRY_SEGMENTS = [
@@ -207,7 +207,7 @@ export const PARTNER_BRANDS = [
   { name: 'Luminous', logo: '/brands/luminous.png' },
   { name: 'Rayzon Solar', logo: '/brands/rayzon.png' },
   { name: 'Microtek', logo: '/brands/microtek.png' },
-  { name: 'Eastman', logo: '/brands/eastman.png' },
+  { name: 'Eastman Solar', logo: '/brands/eastman.png' },
   { name: 'Durasol', logo: '/brands/durasol.png' },
   { name: 'Involtics', logo: '/brands/involtics.webp' },
 ] as const;
@@ -218,6 +218,16 @@ const IMG = {
   battery: '/media/battery.jpg',
   cable: '/media/cable.jpg',
   earth: '/media/earth.jpg',
+  waareePanel: '/products/waaree-panel.jpg',
+  adaniPanel: '/products/adani-panel.jpg',
+  luminousPanel: '/products/luminous-panel.jpg',
+  rayzonPanel: '/products/rayzon-panel.jpg',
+  microtekInverter: '/products/microtek-inverter.jpg',
+  luminousInverter: '/products/luminous-inverter.jpg',
+  eastmanInverter: '/products/eastman-inverter.jpg',
+  durasolInverter: '/products/durasol-inverter.jpg',
+  involticsInverter: '/products/involtics-inverter.jpg',
+  durasolBattery: '/products/durasol-battery.jpg',
 };
 
 export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
@@ -230,7 +240,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'High-yield bifacial panel from Waaree, specified for rooftop and ground-mount systems. Rear-side gain improves generation on reflective roofs and open sites.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.waareePanel,
     keyFeatures: ['Bifacial dual-glass construction', '540 Wp nameplate rating', 'Suitable for residential and C&I rooftops'],
     techSpec: '540 Wp | Bifacial',
   },
@@ -243,7 +253,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       '535 Wp bifacial Waaree module for projects that need a slightly lower wattage while keeping the same bifacial architecture and long-term durability.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.waareePanel,
     keyFeatures: ['Bifacial dual-glass construction', '535 Wp nameplate rating', 'Matched to Waaree 540 Wp string designs'],
     techSpec: '535 Wp | Bifacial',
   },
@@ -256,7 +266,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'N-Type TOPCon module from Waaree for higher efficiency and better high-temperature performance than conventional PERC, used on commercial and industrial arrays.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.waareePanel,
     keyFeatures: ['N-Type TOPCon cell technology', '605 Wp nameplate rating', 'Low temperature coefficient for Odisha heat'],
     techSpec: '605 Wp | TOPCon',
   },
@@ -269,7 +279,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       '610 Wp TOPCon panel from Waaree. Higher wattage per module reduces BOS count on larger rooftops and ground-mount tables.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.waareePanel,
     keyFeatures: ['N-Type TOPCon cell technology', '610 Wp nameplate rating', 'Fewer modules per kW of array'],
     techSpec: '610 Wp | TOPCon',
   },
@@ -282,7 +292,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Top of the Waaree TOPCon range we stock at 615 Wp — specified where roof area is tight and every watt of nameplate matters.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.waareePanel,
     keyFeatures: ['N-Type TOPCon cell technology', '615 Wp nameplate rating', 'High power density for limited roof area'],
     techSpec: '615 Wp | TOPCon',
   },
@@ -295,7 +305,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Adani Solar TOPCon 605 Wp module. Same class of N-Type technology as our Waaree TOPCon line, specified when the project calls for Adani as the panel house.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.adaniPanel,
     keyFeatures: ['N-Type TOPCon cell technology', '605 Wp nameplate rating', 'Adani Solar manufacturing line'],
     techSpec: '605 Wp | TOPCon',
   },
@@ -308,7 +318,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Luminous 550 Wp bifacial panel for homes and small commercial systems that already standardise on Luminous inverters and storage.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.luminousPanel,
     keyFeatures: ['Bifacial module', '550 Wp nameplate rating', 'Pairs cleanly with Luminous GTI inverters'],
     techSpec: '550 Wp | Bifacial',
   },
@@ -321,7 +331,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       '555 Wp Luminous bifacial module — a step up from 550 Wp for slightly higher array output on the same mounting footprint.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.luminousPanel,
     keyFeatures: ['Bifacial module', '555 Wp nameplate rating', 'Residential and small C&I rooftops'],
     techSpec: '555 Wp | Bifacial',
   },
@@ -334,7 +344,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Rayzon Solar 550 Wp bifacial panel. Specified alongside Waaree and Adani when the project brief calls for this house.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.rayzonPanel,
     keyFeatures: ['Bifacial module', '550 Wp nameplate rating', 'Rayzon Solar product line'],
     techSpec: '550 Wp | Bifacial',
   },
@@ -347,7 +357,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       '500 Wp Rayzon bifacial module for compact rooftops and retrofit strings that need a lower wattage than 550 Wp.',
     iconName: 'SunMedium',
-    image: IMG.panel,
+    image: IMG.rayzonPanel,
     keyFeatures: ['Bifacial module', '500 Wp nameplate rating', 'Compact rooftop and retrofit arrays'],
     techSpec: '500 Wp | Bifacial',
   },
@@ -360,7 +370,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Microtek 3 kW grid-tie inverter for residential rooftop systems. Converts DC from the array to AC for on-grid use.',
     iconName: 'Zap',
-    image: IMG.inverter,
+    image: IMG.microtekInverter,
     keyFeatures: ['3 kW grid-tie topology', 'Residential rooftop sizing', 'On-grid export / self-consumption'],
     techSpec: '3 kW | GTI',
   },
@@ -373,7 +383,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Luminous 3 kW GTI for homes that standardise on Luminous panels, inverters and backup. Grid-tied conversion with brand-matched service.',
     iconName: 'Zap',
-    image: IMG.inverter,
+    image: IMG.luminousInverter,
     keyFeatures: ['3 kW grid-tie topology', 'Matches Luminous panel packages', 'Residential on-grid systems'],
     techSpec: '3 kW | GTI',
   },
@@ -386,7 +396,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Eastman 3 kW grid-tie inverter for 3 kW residential plants. Specified when Eastman is the preferred power-electronics house.',
     iconName: 'Zap',
-    image: IMG.inverter,
+    image: IMG.eastmanInverter,
     keyFeatures: ['3 kW grid-tie topology', 'Eastman product line', 'Home rooftop systems'],
     techSpec: '3 kW | GTI',
   },
@@ -399,7 +409,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Eastman 5 kW GTI for larger homes and small commercial rooftops that need more headroom than 3 kW.',
     iconName: 'Zap',
-    image: IMG.inverter,
+    image: IMG.eastmanInverter,
     keyFeatures: ['5 kW grid-tie topology', 'Eastman product line', 'Larger homes and small C&I'],
     techSpec: '5 kW | GTI',
   },
@@ -412,7 +422,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Durasol 3.6 kW hybrid inverter for systems that combine grid-tie with battery backup. Pairs with Durasol 25.6 V / 51.2 V 100 Ah batteries.',
     iconName: 'Zap',
-    image: IMG.inverter,
+    image: IMG.durasolInverter,
     keyFeatures: ['3.6 kW hybrid topology', 'Grid + battery operation', 'Matched to Durasol Li batteries'],
     techSpec: '3.6 kW | Hybrid',
   },
@@ -425,7 +435,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Durasol 5.5 kW hybrid inverter for higher backup loads. Use with Durasol 51.2 V 100 Ah storage on larger hybrid plants.',
     iconName: 'Zap',
-    image: IMG.inverter,
+    image: IMG.durasolInverter,
     keyFeatures: ['5.5 kW hybrid topology', 'Grid + battery operation', 'Higher backup load capacity'],
     techSpec: '5.5 kW | Hybrid',
   },
@@ -438,7 +448,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Involtics 3 kW grid-tie inverter for residential on-grid solar. An alternative 3 kW GTI option alongside Microtek, Luminous and Eastman.',
     iconName: 'Zap',
-    image: IMG.inverter,
+    image: IMG.involticsInverter,
     keyFeatures: ['3 kW grid-tie topology', 'Residential on-grid systems', 'Involtics product line'],
     techSpec: '3 kW | GTI',
   },
@@ -451,7 +461,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Durasol 25.6 V 100 Ah battery for hybrid backup. Typically paired with the Durasol 3.6 kW hybrid inverter on smaller storage banks.',
     iconName: 'BatteryCharging',
-    image: IMG.battery,
+    image: IMG.durasolBattery,
     keyFeatures: ['25.6 V nominal', '100 Ah capacity', 'Hybrid backup storage'],
     techSpec: '25.6 V | 100 Ah',
   },
@@ -464,7 +474,7 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
     description:
       'Durasol 51.2 V 100 Ah battery for higher-voltage hybrid banks. Specified with the Durasol 5.5 kW hybrid inverter and larger backup loads.',
     iconName: 'BatteryCharging',
-    image: IMG.battery,
+    image: IMG.durasolBattery,
     keyFeatures: ['51.2 V nominal', '100 Ah capacity', 'Higher-voltage hybrid banks'],
     techSpec: '51.2 V | 100 Ah',
   },
@@ -602,9 +612,19 @@ export const PRODUCTS_TECHNOLOGY: ProductItem[] = [
 
 export const FEATURED_PRODUCTS: ProductItem[] = [
   PRODUCTS_TECHNOLOGY.find((p) => p.id === 'waaree-topcon-610')!,
+  PRODUCTS_TECHNOLOGY.find((p) => p.id === 'adani-topcon-605')!,
+  PRODUCTS_TECHNOLOGY.find((p) => p.id === 'luminous-bifacial-550')!,
+  PRODUCTS_TECHNOLOGY.find((p) => p.id === 'rayzon-bifacial-550')!,
+  PRODUCTS_TECHNOLOGY.find((p) => p.id === 'microtek-3kw-gti')!,
   PRODUCTS_TECHNOLOGY.find((p) => p.id === 'eastman-5kw-gti')!,
   PRODUCTS_TECHNOLOGY.find((p) => p.id === 'durasol-battery-51-2')!,
+  PRODUCTS_TECHNOLOGY.find((p) => p.id === 'involtics-3kw-gti')!,
 ];
+
+/** Home page brand filter catalogue — all sellable brand SKUs with real product art. */
+export const HOME_PRODUCT_CATALOGUE: ProductItem[] = PRODUCTS_TECHNOLOGY.filter((p) =>
+  (PRODUCT_BRANDS as readonly string[]).includes(p.brand),
+);
 
 /** Products page catalogue architecture — brand-grouped, not per-SKU cards. */
 export const PRODUCT_SECTION_NAV = [
@@ -631,7 +651,7 @@ export const PANEL_BRAND_CARDS = [
   {
     brand: 'Adani Solar',
     slug: 'adani',
-    logo: '/brands/adani.jpg',
+    logo: '/brands/adani.png',
     image: '/products/adani-panel.jpg',
     copy: 'N-Type TOPCon modules engineered for commercial and industrial arrays.',
     technologies: [{ label: 'TOPCon', wattages: ['605 WP'] }],
@@ -674,7 +694,7 @@ export const INVERTER_BRAND_CARDS = [
     ratings: ['3 KW'],
   },
   {
-    brand: 'Eastman',
+    brand: 'Eastman Solar',
     slug: 'eastman',
     logo: '/brands/eastman.png',
     image: '/products/eastman-inverter.jpg',

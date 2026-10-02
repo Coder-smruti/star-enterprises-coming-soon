@@ -4,6 +4,7 @@ import { ProductBadge, SpecPill } from './ProductBits';
 
 type InverterCardProps = {
   brand: string;
+  slug: string;
   logo: string;
   image: string;
   type: string;
@@ -13,6 +14,7 @@ type InverterCardProps = {
 
 export const InverterCard: React.FC<InverterCardProps> = ({
   brand,
+  slug,
   logo,
   image,
   type,
@@ -21,7 +23,12 @@ export const InverterCard: React.FC<InverterCardProps> = ({
 }) => (
   <article className="inv-card">
     <div className="inv-card-top">
-      <BrandLogo brand={brand} src={logo} className="inv-card-logo" withName={false} />
+      <BrandLogo
+        brand={brand}
+        src={logo}
+        className={`inv-card-logo inv-card-logo--${slug}`}
+        withName={false}
+      />
       <ProductBadge tone={type === 'Hybrid' ? 'hybrid' : 'tech'}>{type}</ProductBadge>
     </div>
 

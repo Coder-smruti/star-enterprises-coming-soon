@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
       <header className={shellClass}>
         <div className="site-container nav-inner">
           <Link to="/" className="shrink min-w-0" aria-label="Star Enterprises home">
-            <Logo size="sm" variant="dark" />
+            <Logo size="lg" variant="dark" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -71,7 +71,7 @@ export const Header: React.FC = () => {
             </div>
             <button
               type="button"
-              className="lg:hidden p-2 text-navy"
+              className="lg:hidden p-2.5 -mr-1 text-navy"
               aria-label="Menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
