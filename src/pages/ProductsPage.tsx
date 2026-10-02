@@ -279,7 +279,10 @@ export const ProductsPage: React.FC = () => {
                     <tr>
                       <th>Product</th>
                       <th>Configuration</th>
-                      <th>Voltage / Rating</th>
+                      <th>
+                        <span className="prot-th-full">Voltage / Rating</span>
+                        <span className="prot-th-short">Rating</span>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
